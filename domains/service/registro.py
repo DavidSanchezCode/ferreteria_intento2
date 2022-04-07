@@ -10,3 +10,6 @@ def createUserRegister(user: informacion_basica):
 
 def updateUserRegister(user: informacion_basica, UsuarioId):
     return conn.execute(Register_user.update().values(user).where (Register_user.c.id== UsuarioId))
+
+def selectUserlogin(user: informacion_basica, password):
+    return conn.execute(Register_user.select().values(user).where (Register_user.c.password== password(user)))

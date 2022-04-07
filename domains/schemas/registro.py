@@ -7,3 +7,4 @@ class informacion_basica(BaseModel):
     correo:str
     telefono:str
     edad:str
+    password:str
