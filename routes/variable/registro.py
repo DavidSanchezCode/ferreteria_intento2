@@ -1,29 +1,26 @@
 from fastapi import APIRouter
-from usesCase.registro import getandsaveRegisters,updateUserRegister,selectUserlogin,createUserRegister
+from usesCase.registro import getandsaveRegisters,updateUserRegister,createUserRegister
 from domains.schemas.registro import informacion_basica
-from domains.schemas.login import informacion_login
+
 
 registro=APIRouter()
 
-@registro.post("/registro/")
+@registro.post("/crear nuevo producto/")
 async def get_create_register(user : informacion_basica):
     infoUser = createUserRegister(user)
     return infoUser
 
-@registro.get("/registro/{nombre}")
+@registro.get("/mostrar productos")
 async def get_users_register(user : informacion_basica):
     infoUser = getandsaveRegisters(user)
     return infoUser
 
-@registro.put("/registro/{nombre}")
+@registro.put("/actualizar productos")
 async def get_users_actualizar(user: informacion_basica):
     infoUser = updateUserRegister(user)
     return infoUser
 
-@registro.get("/login/{password}")
-async def  get_password_user(user : informacion_login):
-    infoUser = selectUserlogin(user)
-    return infoUser
+
 
 
 
